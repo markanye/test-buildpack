@@ -199,6 +199,10 @@ echo "-----> Moving built slug to $COMPILE_DIR/app"
 mv $BUNDLE_DEST/bundle "$COMPILE_DIR/app"
 rmdir $BUNDLE_DEST
 
+echo "-----> add startup code to main.js"
+cat "$APP_SOURCE_DIR/startup.js" "$COMPILE_DIR/app/main.js" > "$COMPILE_DIR/app/main.js.tmp"
+mv "$COMPILE_DIR/app/main.js.tmp" "$COMPILE_DIR/app/main.js"
+
 # Run npm install on the built slug; only for '--production' dependencies.
 echo "-----> Installing npm production dependencies on built slug"
 if [ -e "$COMPILE_DIR"/app/programs/server/package.json ]; then
