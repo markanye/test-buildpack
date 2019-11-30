@@ -200,7 +200,7 @@ mv $BUNDLE_DEST/bundle "$COMPILE_DIR/app"
 rmdir $BUNDLE_DEST
 
 echo "-----> copy startup.js into place"
-cp "$APP_SOURCE_DIR/startup" "$COMPILE_DIR/app/startup.js"
+cp "$APP_SOURCE_DIR/.startup.js" "$COMPILE_DIR/app/startup.js"
 
 # Run npm install on the built slug; only for '--production' dependencies.
 echo "-----> Installing npm production dependencies on built slug"
